@@ -236,13 +236,6 @@
     transition: color 0.4s ease;
   }
 
-  .login {
-    position: absolute;
-    bottom: 0;
-    font-size: 12px;
-
-  }
-
 
   </style>
   {% block css %}
@@ -259,8 +252,8 @@
       <div>
         <div>
           <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="#">Education</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'info:education' %}">Education</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>
             <li class="login">Login</li>
@@ -271,24 +264,24 @@
   </div>
 
 
-      {% block body_block %}
+  {% block body_block %}
 
-      {% endblock %}
+  {% endblock %}
 
 </body>
 
-  <script>
-  function openNav() {
-    document.getElementById("sidenav").style.width = "250px";
-    // document.body.style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-  }
+<script>
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  // document.body.style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
 
-  function closeNav() {
-    document.getElementById("sidenav").style.width = "0";
-    // document.body.style.marginLeft= "0";
-    document.body.style.backgroundColor = "#262626";
-  }
-  </script>
+function closeNav() {
+  document.getElementById("sidenav").style.width = "0";
+  // document.body.style.marginLeft= "0";
+  document.body.style.backgroundColor = "#262626";
+}
+</script>
 </body>
 </html>

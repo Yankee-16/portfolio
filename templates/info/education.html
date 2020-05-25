@@ -1,0 +1,33 @@
+{% extends "info/base.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block css %}
+  <style type="text/css">
+    .jumbotron {
+
+    background-image: url("{% static 'images/education.jpg' %}");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.70;
+    height: 500px;
+    width: 100%;
+    position: relative;
+  }
+  </style>
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <h1 style="padding-top: 100px; padding-left: 38%; font-size: 100px; color: #000; text-shadow: 2px 2px #808080;">Education</h1>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
