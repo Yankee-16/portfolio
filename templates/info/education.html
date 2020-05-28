@@ -1,33 +1,123 @@
 {% extends "info/base.html" %}
 {% load static %}
+{% load info_extras %}
 {% block title %}
-Home
+Education
 {% endblock %}
 
 {% block css %}
   <style type="text/css">
     .jumbotron {
-
     background-image: url("{% static 'images/education.jpg' %}");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     opacity: 0.70;
-    height: 500px;
+    height: 45%;
     width: 100%;
     position: relative;
   }
+  .row-header{
+    margin:0px auto;
+    padding:0px;
+}
+
+.row-content {
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height:400px;
+}
+
+
+
+.display-2 {
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 30px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    h1 {
+      font-size: 60px;
+    }
+  }
+
+}
+body{
+    z-index:0;
+    background: #ccc;
+}
   </style>
 {% endblock %}
 
 {% block body_block %}
-<div class="jumbotron">
+<div class="jumbotron d-flex">
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <h1 style="padding-top: 100px; padding-left: 38%; font-size: 100px; color: #000; text-shadow: 2px 2px #808080;">Education</h1>
+      <h1 class="display-2" style="text-align: center;  color: #000; text-shadow: 2px 2px #808080;">Education</h1>
     </div>
   </div>
 </div>
+</div>
+
+<div class="container">
+  {% if edu %}
+    {% with True as odd %}
+    {% for e in edu %}
+      <div class="row row-content align-items-center">
+        {% if odd %}
+          <div class="col-12 col-sm-4 col-md-4">
+            <h2>{{e.instituition}}</h2>
+          </div>
+          <div class="col order-sm-first col-sm col-md">
+            <div class="media">
+              <img class="d-flex mr-3 img-thumbnail align-self-center"
+              src="{{ e.logo.url }}" alt="Logo" height="250px" width="250px">
+              <div class="media-body">
+                <h4 class="mt-0"><strong>Degree: </strong>{{e.degree}}</h4>
+                <div class="d-none d-sm-block">
+                  <p><strong>Department: </strong>{{e.department}}</p>
+                  <p>From {{e.start}} to {% if e.present %} Present {% else %} {{e.end}} {% endif %}</p>
+                  <p><strong>Result: </strong>{% if e.present %} Appearing {% else %} {{e.result}} {% endif %}</p>
+
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% update_variable False as odd %}
+        {% else %}
+            <div class="row row-content align-items-center">
+                <div class="col col-12 col-sm-4 col-md-4">
+                  <h2>{{e.instituition}}</h2>
+                </div>
+              <div class="col col-sm col-md">
+                <div class="media">
+
+                  <div class="media-body">
+                    <h4 class="mt-0"><strong>Degree: </strong>{{e.degree}}</h4>
+                    <div class="d-none d-sm-block">
+                      <p><strong>Department: </strong>{{e.department}}</p>
+                      <p>From {{e.start}} to {% if e.present %} Present {% else %} {{e.end}} {% endif %}</p>
+                      <p><strong>Result: </strong>{% if e.present %} Appearing {% else %} {{e.result}} {% endif %}</p>
+
+                    </div>
+                    </div>
+                    <img class="d-flex mr-3 img-thumbnail align-self-center"
+                    src="{{ e.logo.url }}" alt="Logo" height="250px" width="250px">
+                  </div>
+                </div>
+            </div>
+            {% update_variable True as odd %}
+        {% endif %}
+
+    {% endfor %}
+    {% endwith %}
+  {% else %}
+  <h3>Currently no education informations available</h3>
+  {% endif %}
 </div>
 {% endblock %}
