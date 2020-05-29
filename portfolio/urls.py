@@ -26,4 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user_home/', views.user_home, name='user_home'),
     path('logout/', views.user_logout, name='logout'),
+    path('add_edu/', views.add_edu, name='add_edu'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

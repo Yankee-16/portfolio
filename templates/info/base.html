@@ -287,11 +287,15 @@
           <ul>
             <li><a href="{% url 'home' %}"> <span class="fa fa-home fa-lg"></span> Home</a></li>
             <li><a href="{% url 'info:education' %}"><span class="fa fa-graduation-cap fa-lg"></span> Education</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#"><span class="fa fa-briefcase fa-lg"></span> Job</a></li>
+            <li><a href="#"><span class="fa fa-bicycle fa-lg"></span> Extracurricular Activity</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'user_home' %}"><span class="fa fa-user-secret fa-lg"></span> User Home</a></li>
+            {% else %}
             <span class="navbar-text">
               <a data-toggle="modal" data-target="#loginModal"><span class="fa fa-sign-in"></span>Login</a>
             </span>
+            {% endif %}
           </ul>
 
         </div>

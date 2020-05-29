@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from info.models import *
 from django.db.models import Q, Max
 from django.contrib import messages
-# from info.forms import Form, UserForm
+from info.forms import Eduform
 # Create your views here.
 def home(request):
     if request.method == "POST":
@@ -29,13 +29,13 @@ def home(request):
 
 def education(request):
     if request.method == "POST":
-        user = request.POST.get('username')
+        username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
 
         if user:
             login(request, user)
-            return HttpResponseRedirect('user_home')
+            return HttpResponseRedirect(reverse('user_home'))
 
         else:
             messages.error(request, 'Invalid Username or Password!')
@@ -46,7 +46,24 @@ def education(request):
     return render(request, 'info/education.html', context=dict)
 
 def user_home(request):
-    return render(request, 'info/user_home.html')
+    return render(request, 'user/user_home.html')
+
+@login_required
+def add_edu(request):
+    if request.user.is_superuser == 0:
+        return HttpResponseRedirect(reverse('home'))
+    form = Eduform(request.POST or None)
+    if request.method == 'POST':
+        form = Eduform(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return HttpResponseRedirect(reverse('user_home'))
+        else:
+            print("Invalid Data")
+            return HttpResponseRedirect(reverse('add_edu'))
+    else:
+        return render(request, 'user/add_edu.html', {'form': form})
 
 @login_required
 def user_logout(request):
