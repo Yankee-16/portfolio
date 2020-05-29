@@ -6,4 +6,5 @@ app_name = 'info'
 
 urlpatterns = [
     url(r'^education/$', views.education, name='education'),
+        
 ]
