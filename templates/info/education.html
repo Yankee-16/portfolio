@@ -13,7 +13,7 @@ Education
     background-repeat: no-repeat;
     background-size: 100% 100%;
     opacity: 0.70;
-    height: 45%;
+    height: 60%;
     width: 100%;
     position: relative;
   }
@@ -81,7 +81,7 @@ body{
                 <h4 class="mt-0"><strong>Degree: </strong>{{e.degree}}</h4>
                 <p class="d-none d-sm-block">
                   <strong>Department: </strong>{{e.department}}<br>
-                  From {{e.start}} to {% if e.present %} Present {% else %} {{e.end}} {% endif %}<br>
+                  <strong>From</strong> {{e.start}} <strong>to</strong>  {% if e.present %} Present {% else %} {{e.end}} {% endif %}<br>
                   <strong>Result: </strong>{% if e.present %} Appearing {% else %} {{e.result}} {% endif %}<br>
 
                 </p>
@@ -102,7 +102,7 @@ body{
                     <h4 class="mt-0"><strong>Degree: </strong>{{e.degree}}</h4>
                     <p class="d-none d-sm-block">
                       <strong>Department: </strong>{{e.department}}<br>
-                      From {{e.start}} to {% if e.present %} Present {% else %} {{e.end}} {% endif %}<br>
+                    <strong>From</strong> {{e.start}} <strong>to</strong> {% if e.present %} Present {% else %} {{e.end}} {% endif %}<br>
                       <strong>Result: </strong>{% if e.present %} Appearing {% else %} {{e.result}} {% endif %}<br>
 
                     </p>

@@ -8,12 +8,12 @@ Jobs
 {% block css %}
   <style type="text/css">
     .jumbotron {
-    background-image: url("{% static 'images/education.jpg' %}");
+    background-image: url("{% static 'images/jobs.jpg' %}");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     opacity: 0.70;
-    height: 45%;
+    height: 270px;
     width: 100%;
     position: relative;
   }
@@ -55,11 +55,11 @@ body{
 {% block body_block %}
 <header class="jumbotron d-flex">
 <div class="container-fluid">
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <h1 class="display-3" style="text-align: center;  color: #000; text-shadow: 2px 2px #808080;">Jobs</h1>
+      <h1 class="display-3" style="text-align: center; padding-top: 40px;  color: #000; text-shadow: 2px 2px #808080;"><strong>Jobs</strong></h1>
     </div>
-  </div>
+  </div> -->
 </div>
 </header>
 
@@ -80,7 +80,7 @@ body{
               <div class="media-body">
                 <h5 class="mt-0"><strong>Position: </strong>{{e.position}}</h5>
                 <p class="d-none d-sm-block">
-                  From {{e.start}} to {% if e.present %} Present {% else %} {{e.end}} {% endif %}<br>
+                  <strong>From</strong> {{e.start}} <strong>to</strong> {% if e.present %} Present {% else %} {{e.end}} {% endif %}<br>
 
                 </p>
                 </div>
@@ -99,7 +99,7 @@ body{
                   <div class="media-body">
                     <h4 class="mt-0"><strong>Position: </strong>{{e.position}}</h4>
                     <p class="d-none d-sm-block">
-                      From {{e.start}} to {% if e.present %} Present {% else %} {{e.end}} {% endif %}<br>
+                      <strong>From</strong> {{e.start}} <strong>to</strong> {% if e.present %} Present {% else %} {{e.end}} {% endif %}<br>
 
                     </p>
                     </div>
