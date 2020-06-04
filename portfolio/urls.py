@@ -25,6 +25,9 @@ urlpatterns = [
     path('about_me/', include('info.urls', namespace='info')),
     path('admin/', admin.site.urls),
     path('user_home/', views.user_home, name='user_home'),
+    path('login/', views.user_login, name='login'),
     path('logout/', views.user_logout, name='logout'),
     path('add_edu/', views.add_edu, name='add_edu'),
+    path('add_job/', views.add_job, name='add_job'),
+    path('add_extra/', views.add_extra, name='add_extra'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

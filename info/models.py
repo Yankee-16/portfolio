@@ -9,4 +9,21 @@ class Education(models.Model):
     present = models.BooleanField(default=False)
     end = models.CharField(max_length=30, blank=True, null=True)
     result = models.CharField(max_length=30, blank=True, null=True)
-    logo = models.ImageField(upload_to='media/images/', blank=True)
+    logo = models.ImageField(upload_to='media/images/education/', blank=True)
+
+class Extracurricular(models.Model):
+    instituition = models.CharField(max_length=50)
+    type = models.CharField(max_length=50)
+    position = models.CharField(max_length=50)
+    start = models.CharField(max_length=30)
+    present = models.BooleanField(default=False)
+    end = models.CharField(max_length=30, blank=True, null=True)
+    logo = models.ImageField(upload_to='media/images/extracurricular/', blank=True)
+
+class Job(models.Model):
+    instituition = models.CharField(max_length=50)
+    position = models.CharField(max_length=50)
+    start = models.CharField(max_length=30)
+    present = models.BooleanField(default=False)
+    end = models.CharField(max_length=30, blank=True, null=True)
+    logo = models.ImageField(upload_to='media/images/jobs/', blank=True)

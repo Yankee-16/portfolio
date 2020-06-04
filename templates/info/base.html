@@ -270,7 +270,7 @@
             </div>
             <div class="form-row">
               <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
+              <button type="submit" formaction="{% url 'login' %}" class="btn btn-primary btn-sm ml-1">Sign in</button>
             </div>
           </form>
         </div>
@@ -287,8 +287,8 @@
           <ul>
             <li><a href="{% url 'home' %}"> <span class="fa fa-home fa-lg"></span> Home</a></li>
             <li><a href="{% url 'info:education' %}"><span class="fa fa-graduation-cap fa-lg"></span> Education</a></li>
-            <li><a href="#"><span class="fa fa-briefcase fa-lg"></span> Job</a></li>
-            <li><a href="#"><span class="fa fa-bicycle fa-lg"></span> Extracurricular Activity</a></li>
+            <li><a href="{% url 'info:job' %}"><span class="fa fa-briefcase fa-lg"></span> Job</a></li>
+            <li><a href="{% url 'info:extracurricular' %}"><span class="fa fa-bicycle fa-lg"></span> Extracurricular Activity</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'user_home' %}"><span class="fa fa-user-secret fa-lg"></span> User Home</a></li>
             {% else %}
