@@ -1,0 +1,47 @@
+
+{% extends "blog/blog_base.html" %}
+{% load static %}
+{% block title %}
+Post a new blog
+{% endblock %}
+
+{% block css %}
+ <style type="text/css">
+     .row-header{
+    margin:0px auto;
+    padding:0px;
+}
+
+.row-content {
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height:400px;
+}
+ </style>
+{% endblock %}
+
+{% block body_block %}
+
+<main role="main">
+  <header class="jumbotron" style="background: #333; color: #fff;">
+    <h1 align="center">Post a new blog</h1>
+  </header>
+  <div class="offset-sm-1 col-12 col-sm-10">
+  <div class="row">
+      <form method="post" data-ajax="false" enctype="multipart/form-data">
+
+      {% csrf_token %}
+      <table class="table table-striped table-hover">
+        {{ form.media }}
+        {{ form.as_table }}
+      </table>
+      <input type="submit" class="btn btn-primary" value='Post'>
+  </form>
+  </div>
+</div>
+</main>
+
+
+
+{% endblock %}

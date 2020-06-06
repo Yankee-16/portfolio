@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.home, name='home'),
     path('about_me/', include('info.urls', namespace='info')),
+    path('blog/', include('blog.urls', namespace='blog')),
     path('admin/', admin.site.urls),
     path('user_home/', views.user_home, name='user_home'),
     path('login/', views.user_login, name='login'),
@@ -30,4 +31,5 @@ urlpatterns = [
     path('add_edu/', views.add_edu, name='add_edu'),
     path('add_job/', views.add_job, name='add_job'),
     path('add_extra/', views.add_extra, name='add_extra'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

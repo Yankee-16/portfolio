@@ -1,0 +1,49 @@
+
+{% extends "blog/blog_base.html" %}
+{% load static %}
+{% block title %}
+Blogs
+{% endblock %}
+
+{% block css %}
+ <style type="text/css">
+     .row-header{
+    margin:0px auto;
+    padding:0px;
+}
+
+.row-content {
+    margin:0px auto;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px ridge;
+    min-height:400px;
+}
+ </style>
+{% endblock %}
+
+{% block body_block %}
+
+<main role="main">
+  <header class="jumbotron" style="background: #333; color: #fff;">
+    <h1 align="center">Imran's Blog</h1>
+  </header>
+  <div class="container">
+  <div class="row">
+    <div class="col col-md-9">
+      {% for p in post %}
+      <div class="row row-header">
+        <a href="{% url 'blog:detail' p.id %}"><h1>{{ p.title }}</h1></a>
+      </div>
+      <p><span class="fa fa-calendar-check-o"></span> Published: {{ p.pub_date }} </p>
+        <div class="row row-content">
+          {{ p.summary|safe }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</main>
+
+
+
+{% endblock %}
