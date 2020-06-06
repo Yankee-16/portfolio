@@ -19,5 +19,17 @@ You can install Argon2 by
 pip install django[argon2]
 ```
 
-###Database
+Django-CKeditor
+
+[Django-CKeditor] (https://github.com/django-ckeditor/django-ckeditor/)
+
+##Database
 Postgresql
+
+##Usage
+
+Run this command in terminal after installing all the requirements and activating virtual environment
+
+```bash
+python manage.py runserver
+```
