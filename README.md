@@ -21,7 +21,7 @@ pip install django[argon2]
 
 Django-CKeditor
 
-[Django-CKeditor] (https://github.com/django-ckeditor/django-ckeditor/)
+[Django-CKeditor](https://github.com/django-ckeditor/django-ckeditor/)
 
 ## Database
 Postgresql
