@@ -23,10 +23,10 @@ Django-CKeditor
 
 [Django-CKeditor] (https://github.com/django-ckeditor/django-ckeditor/)
 
-##Database
+## Database
 Postgresql
 
-##Usage
+## Usage
 
 Run this command in terminal after installing all the requirements and activating virtual environment
 
