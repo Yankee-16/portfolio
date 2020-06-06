@@ -23,7 +23,7 @@ Django-CKeditor
 
 [Django-CKeditor] (https://github.com/django-ckeditor/django-ckeditor/)
 
-### Database
+## Database
 Postgresql
 
 ## Usage
