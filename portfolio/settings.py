@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # 'django.contrib.staticfiles',
     'info',
     'blog',
     'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -117,16 +118,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'height': 300,
-        'width': 1200,
-    },
-    'awesome_ckeditor': {
-        'toolbar': 'Basic',
-    },
-}
+CKEDITOR_CONFIGS =  { 'default':
+                         { 'toolbar': 'Custom', 'height': 500, 'toolbar_Custom':
+                             [
+                                 ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'SpellChecker', 'Undo', 'Redo'],
+                                 ['Link', 'Unlink', 'Anchor'],
+                                 ['Image', 'Flash', 'Table', 'HorizontalRule'],
+                                 ['TextColor', 'BGColor'],
+                                 ['Smiley', 'SpecialChar'],
+                                 ['Source'],
+                             ],
+                           }, 'special': {'toolbar': 'Special', 'toolbar_Special':
+                                       [
+                                           ['Bold'], ['CodeSnippet'],
+                                       ], 'extraPlugins': 'codesnippet',
+                                   }
+                     }
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
