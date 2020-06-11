@@ -32,6 +32,9 @@ def extracurricular(request):
     dict = {'extra':extra}
     return render(request, 'info/extracurricular.html', context=dict)
 
+def photogal(request):
+    return render(request, 'info/photogal.html')
+
 def user_login(request):
     username = request.POST.get('username')
     password = request.POST.get('password')

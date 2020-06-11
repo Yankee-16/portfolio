@@ -7,5 +7,6 @@ app_name = 'info'
 urlpatterns = [
     url(r'^education/$', views.education, name='education'),
     url(r'^job/$', views.job, name='job'),
-    url(r'^extracurricular/$', views.extracurricular, name='extracurricular'),  
+    url(r'^extracurricular/$', views.extracurricular, name='extracurricular'),
+    url(r'^photos/$', views.photogal, name='photos'),   
 ]
