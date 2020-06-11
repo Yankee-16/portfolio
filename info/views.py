@@ -35,6 +35,9 @@ def extracurricular(request):
 def photogal(request):
     return render(request, 'info/photogal.html')
 
+def contact(request):
+    return render(request, 'info/contact.html')
+
 def user_login(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
