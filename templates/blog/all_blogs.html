@@ -7,7 +7,7 @@ Blogs
 
 {% block css %}
  <style type="text/css">
-     .row-header{
+ .row-header{
     margin:0px auto;
     padding:0px;
 }
@@ -16,7 +16,7 @@ Blogs
     margin:0px auto;
     padding: 10px 0px 10px 0px;
     border-bottom: 1px ridge;
-    min-height:400px;
+    min-height: 150px;
 }
  </style>
 {% endblock %}
@@ -32,11 +32,11 @@ Blogs
     <div class="col col-md-9">
       {% for p in post %}
       <div class="row row-header">
-        <a href="{% url 'blog:detail' p.id %}"><h1>{{ p.title }}</h1></a>
+        <a href="{% url 'blog:detail' p.slug %}"><h1>{{ p.title }}</h1></a>
       </div>
       <p><span class="fa fa-calendar-check-o"></span> Published: {{ p.pub_date }} </p>
         <div class="row row-content">
-          {{ p.summary|safe }}
+          {{ p.summary|safe }} <br>
         </div>
       {% endfor %}
     </div>

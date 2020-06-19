@@ -11,18 +11,20 @@ from blog.forms import PostForm
 
 # Create your views here.
 def all(request):
-    post = Post.objects.all()
-    return render(request, 'blog/all_blogs.html', {'post':post})
+    post = Post.objects.order_by('pub_date')
+    return render(request, 'blog/all_blogs.html', {'post': post})
 
-def detail(request, blog_id):
-    post = get_object_or_404(Post, pk=blog_id)
-    return render(request, 'blog/detail.html', {'post':post})
+def detail(request, slug):
+    print(slug)
+    post = get_object_or_404(Post, slug=slug)
+    return render(request, 'blog/detail.html', {'post': post})
 
 @login_required
 def post(request):
+    print('Here')
     if request.user.is_superuser == 0:
         return HttpResponseRedirect(reverse('all'))
-    form = PostForm(request.POST or None)
+    # form = PostForm(request.POST or None)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
 
@@ -33,4 +35,5 @@ def post(request):
             print("Invalid Data")
             return HttpResponseRedirect(reverse('post'))
     else:
+        form = PostForm()
         return render(request, 'blog/post.html', {'form': form})

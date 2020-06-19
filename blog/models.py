@@ -8,6 +8,7 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     pub_date = models.DateField(default=timezone.now())
     content = RichTextField()
+    slug = models.SlugField(primary_key=True, unique=True, default='')
 
     def __str__(self):
         return self.title
